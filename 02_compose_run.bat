@@ -1,0 +1,1 @@
+docker-compose -p whisper-app -f ./docker-compose.yml up -d

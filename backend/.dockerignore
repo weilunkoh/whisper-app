@@ -1,0 +1,8 @@
+notebooks/*
+scripts/*
+conda-env-docker.yml
+conda-env.yml
+.env
+.env-template
+01_build_image.bat
+02_run_container.bat

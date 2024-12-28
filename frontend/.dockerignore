@@ -1,0 +1,4 @@
+build/*
+node_modules/*
+01_build_image.bat
+02_run_container.bat

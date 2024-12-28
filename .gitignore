@@ -1,0 +1,5 @@
+backend/notebooks/data/*
+backend/.env
+frontend/build
+frontend/node_modules
+__pycache__

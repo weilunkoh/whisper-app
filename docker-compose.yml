@@ -1,0 +1,21 @@
+services:
+  whisper-app-fe:
+    depends_on:
+      - whisper-app-be
+    image: whisper-app/fe:${tag}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: whisper-app-fe
+    ports:
+      - "80:80"
+  whisper-app-be:
+    image: whisper-app/be:${tag}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: whisper-app-be
+    environment:
+      - MODE=prod
+      - DB_NAME=db_filled.db
+    command: "conda run --no-capture-output -n whisper-app-be gunicorn --workers 1 --threads 4 -b 0.0.0.0:5000 app:app"
