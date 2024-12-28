@@ -15,3 +15,7 @@ search_parser = reqparse.RequestParser()
 search_parser.add_argument("limit", type=int, required=True)
 search_parser.add_argument("offset", type=int, required=True)
 search_parser.add_argument("filtered_term", type=str, required=True)
+
+postprocess_parser = reqparse.RequestParser()
+postprocess_parser.add_argument("user_prompt", type=str, required=True)
+postprocess_parser.add_argument("system_prompt", type=str, required=False)

@@ -3,10 +3,16 @@ from os import getenv as os_getenv
 from threading import Thread
 
 from dotenv import load_dotenv
-from flask import Flask, send_file
+from flask import Flask, Response, send_file
 from flask_restx import Api, Resource
 from src.helper_hf import load_model_pipeline
-from src.helper_parser import search_parser, transcribe_parser, transcriptions_parser
+from src.helper_openai import complete_chat
+from src.helper_parser import (
+    postprocess_parser,
+    search_parser,
+    transcribe_parser,
+    transcriptions_parser,
+)
 from src.helper_sqlite import (
     execute_batch_task,
     execute_one_task,
@@ -157,6 +163,35 @@ class Search(Resource):
                 "total_num_records": num_records,
                 "result": result,
             }, 200
+        except Exception as e:
+            return {"status": "error", "message": str(e)}, 500
+
+
+@api.route("/postprocess", methods=["POST"])
+@api.doc(
+    description="For postprocessing transcribed text using OpenAI's gpt-4o-mini model",
+    responses={
+        200: "OK",
+        400: "Bad Request (e.g. missing user prompt)",
+        500: "Internal Server Error",
+    },
+)
+class Postprocess(Resource):
+    @api.expect(postprocess_parser)
+    def post(self):
+        args = postprocess_parser.parse_args()
+        user_prompt = args["user_prompt"]
+        system_prompt = args["system_prompt"]
+
+        if system_prompt is None:
+            system_prompt = ""
+
+        try:
+            return Response(
+                complete_chat(user_prompt, system_prompt),
+                mimetype="text/plain",
+                status=200,
+            )
         except Exception as e:
             return {"status": "error", "message": str(e)}, 500
 

@@ -9,4 +9,9 @@ export const navigation = [
     href: ["/search"],
     description: "Search for transcribed text from past tasks."
   },
+  {
+    name: 'Postprocess',
+    href: ["/postprocess"],
+    description: "Beta feature to finetune the transcription with OpenAI's gpt-4o-mini model."
+  },
 ]
