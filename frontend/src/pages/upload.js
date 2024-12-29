@@ -1,6 +1,7 @@
 import { React, useReducer, useState, useEffect } from "react";
 import { handleDragEnter, handleDragLeave, handleDragOver, handleDrop, handleFileSelect } from "../helper/dropzone";
 import { transcribeURL } from "../props/urls";
+import SubmitButton from "../components/submitButton";
 
 const Upload = () => {
   // reducer function to handle state changes
@@ -139,21 +140,23 @@ const Upload = () => {
           </button>}
 
         </div>}
-        {!submitSuccess && <div><button
+        {/* {!submitSuccess && <div><button
           className="mt-6 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
           onClick={() => submitTask()}
           disabled={data.file == null}
         >
           Submit
-        </button></div>}
+        </button></div>} */}
+        {!submitSuccess && <div><SubmitButton action={() => submitTask()} disabledCondtion={data.file == null} displayText="Submit" /></div>}
         {submitSuccess && <p className="mt-6 rounded-md bg-green-300 py-2 px-2">Your task is submitted successfully and transcription is in progress.</p>}
         {submitError && <p className="mt-6 rounded-md bg-red-300 py-2 px-2">{submitErrorMessage}</p>}
-        {submitSuccess && <button
+        {/* {submitSuccess && <button
           className="mt-6 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
           onClick={() => resetForm()}
         >
           Submit Another Task
-        </button>}
+        </button>} */}
+        {submitSuccess && <SubmitButton action={() => resetForm()} disabledCondtion={false} displayText="Submit Another Task" />}
       </div>
     </div>
   )
