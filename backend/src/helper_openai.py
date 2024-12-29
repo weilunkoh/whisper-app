@@ -1,8 +1,15 @@
+import logging
+
 from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-client = OpenAI()
+try:
+    client = OpenAI()
+except Exception as e:
+    logging.error(f"Error with OpenAI client => {e}")
+    logging.info("Postprocessing beta feature via OpenAI is not available")
+    client = None
 
 
 def complete_chat(user_prompt: str, system_prompt: str = ""):

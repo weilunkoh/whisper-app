@@ -1,6 +1,7 @@
 backend/notebooks/data/*
 backend/notebooks/.env
 backend/.env
+__pycache__
 frontend/build
 frontend/node_modules
-__pycache__
+secrets_openai_api_key.txt

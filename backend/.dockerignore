@@ -1,8 +1,9 @@
 notebooks/*
 scripts/*
-conda-env-docker.yml
-conda-env.yml
+test_src/*
 .env
 .env-template
 01_build_image.bat
 02_run_container.bat
+conda-env.yml
+test_app.py

@@ -2,6 +2,12 @@ import logging
 from os import getenv as os_getenv
 from threading import Thread
 
+# logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    format="[%(asctime)s] %(levelname)s: %(message)s",
+    level=logging.INFO,
+)
+
 from dotenv import load_dotenv
 from flask import Flask, Response, send_file
 from flask_restx import Api, Resource
@@ -24,7 +30,6 @@ from src.helper_time import get_timestamp_ms
 
 load_dotenv()
 
-logging.basicConfig(level=logging.INFO)
 
 app: Flask = Flask(__name__)
 app.model = load_model_pipeline()
