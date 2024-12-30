@@ -1,4 +1,4 @@
-# Whisper App Frontend Code Repository
+# Whisper App Frontend Folder
 
 This folder serves as the frontend component for a full stack application that consists of a Whisper transcribing model from HuggingFace. It is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -37,4 +37,23 @@ This command launches the test runner in the interactive watch mode.\
 The files for unit tests are found in `src/__test__` folder. The files are organised such that it follows the file structure of the codes.
 
 ## Docker Scripts
-TODO
+All provided `.bat` scripts are `docker` scripts which can be run in the command line after cloning this repository and navigating the command line to the cloned folder. 
+
+The purpose of each `docker` script is as follows:
+
+### 01_build_image.bat
+This is used to build the Docker images for the frontend container. Run this `.bat` file simply by running `01_build_image.bat <version number>`. 
+```bash
+01_build_image.bat <version number>
+#e.g. 01_build_image.bat 0.0.1
+```
+
+### 02_run_container.bat
+This is used to run the frontend container. Run this `.bat` file simply by running `02_run_container.bat <version number>`. 
+```bash
+02_run_container.bat <version number>
+#e.g. 02_run_container.bat 0.0.1
+```
+
+### 03_stop_container.bat
+This is used to stop the frontend container. Run this `.bat` file simply by running `03_stop_container.bat`.   No version number is needed as compared to the other scripts because the container is stopped based on the container name.
