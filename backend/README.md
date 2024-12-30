@@ -17,6 +17,9 @@ Python via Miniconda:
   ```
 - Create `.env` file based on the given `.env-template` file. Fill the `OPENAI_API_KEY` value with your own OpenAI API key to enable the bonus postprocessing feature for editing transcripts with gpt-4o-mini.
     - The `docker-compose.yml` from the parent folder also reads the OpenAI API key from this `.env` file.
+    - The `MODE` variable can be set to `dev` or `prod`. One difference between `dev` and `prod` is that CORS is not used in `prod`.
+      - The `MODE` should always be set to `prod` for the containerised Flask app because the CORS pacakged is not installed in the container environment as seen in `conda-env-docker.yml` file.
+    - The `DB_NAME` variable can be set to `db_initial.db` or `db_filled.db`. `db_initial.db` contains an empty table while `db_filled.db` consists of data that I have transcribed with this full stack application. 
 
 Docker:
 - Set up Docker on your local environment. (e.g. [Rancher Desktop](https://docs.rancherdesktop.io/getting-started/installation/), [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/))
