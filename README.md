@@ -1,4 +1,4 @@
-# Whisper APP Code Repository 
+# Whisper App Code Repository 
 
 This code repository is for a full stack application that consists of a Whisper transcribing model from HuggingFace. The frontend is built on JavaScript React while the backend is REST API server built via Python Flask. 
 
@@ -8,7 +8,7 @@ More details on the architecture system design and other technical consideration
 
 ## Docker Pre-requisites
 - Set up Docker on your local environment. (e.g. [Rancher Desktop](https://docs.rancherdesktop.io/getting-started/installation/), [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/))
-- Docker is needed wrap the various applications into Docker images and run the Docker images as containers.
+- Docker is needed to wrap the various applications into Docker images and run the Docker images as containers.
 
 ## Docker Compose Scripts
 All provided `.bat` scripts are `docker-compose` scripts which can be run in the command line after cloning this repository and navigating the command line to the cloned folder. The `tag` environment attribute that defines the version number of the Docker images can be found in the `.env` file.
