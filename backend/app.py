@@ -2,7 +2,6 @@ import logging
 from os import getenv as os_getenv
 from threading import Thread
 
-# logging.basicConfig(level=logging.INFO)
 logging.basicConfig(
     format="[%(asctime)s] %(levelname)s: %(message)s",
     level=logging.INFO,

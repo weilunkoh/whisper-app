@@ -1,4 +1,11 @@
+import logging
+
 from sqlalchemy import Column, Integer, MetaData, String, Table, create_engine
+
+logging.basicConfig(
+    format="[%(asctime)s] %(levelname)s: %(message)s",
+    level=logging.INFO,
+)
 
 
 def create_db():
