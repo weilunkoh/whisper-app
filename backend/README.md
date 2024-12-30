@@ -50,18 +50,18 @@ All provided `.bat` scripts are `docker` scripts which can be run in the command
 The purpose of each `docker` script is as follows:
 
 ### 01_build_image.bat
-This is used to build the Docker images for the frontend container. Run this `.bat` file simply by running `01_build_image.bat <version number>`. 
+This is used to build the Docker images for the backend container. Run this `.bat` file simply by running `01_build_image.bat <version number>`. 
 ```bash
 01_build_image.bat <version number>
 #e.g. 01_build_image.bat 0.0.1
 ```
 
 ### 02_run_container.bat
-This is used to run the frontend container. Run this `.bat` file simply by running `02_run_container.bat <version number>`. 
+This is used to run the backend container for standalone exploration purposes without integration with the frontend container. Run this `.bat` file simply by running `02_run_container.bat <version number>`. 
 ```bash
 02_run_container.bat <version number>
 #e.g. 02_run_container.bat 0.0.1
 ```
 
 ### 03_stop_container.bat
-This is used to stop the frontend container. Run this `.bat` file simply by running `03_stop_container.bat`.   No version number is needed as compared to the other scripts because the container is stopped based on the container name.
+This is used to stop the backend container. Run this `.bat` file simply by running `03_stop_container.bat`.   No version number is needed as compared to the other scripts because the container is stopped based on the container name.

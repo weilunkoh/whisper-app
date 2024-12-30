@@ -49,7 +49,7 @@ This is used to build the Docker images for the frontend container. Run this `.b
 ```
 
 ### 02_run_container.bat
-This is used to run the frontend container. Run this `.bat` file simply by running `02_run_container.bat <version number>`. 
+This is used to run the frontend container for standalone exploration purposes without integration with the backend container.  Run this `.bat` file simply by running `02_run_container.bat <version number>`. 
 ```bash
 02_run_container.bat <version number>
 #e.g. 02_run_container.bat 0.0.1
